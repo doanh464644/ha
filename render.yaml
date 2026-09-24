@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: bongx
+    runtime: docker
+    plan: free
+    region: singapore          # gần VN nhất
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: CUSTOM_USER
+        value: BONGX
+      - key: PASSWORD
+        sync: false            # nhập trên dashboard cho bảo mật
+      - key: TZ
+        value: Asia/Ho_Chi_Minh
+      - key: PUID
+        value: "1000"
+      - key: PGID
+        value: "1000"
